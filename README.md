@@ -1,5 +1,5 @@
 
-##“How have trends in IMDb user engagement (ratings and number of votes) for different movie genres changed over time, and what factors might explain these shifts?
+## “How have trends in IMDb user engagement (ratings and number of votes) for different movie genres changed over time, and what factors might explain these shifts?
 *Describe the purpose of this project* 
 
 ## Motivation
