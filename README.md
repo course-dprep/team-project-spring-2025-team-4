@@ -1,11 +1,5 @@
-> **Important:** This is a template repository to help you set up your team project.  
->  
-> You are free to modify it based on your needs. For example, if your data is downloaded using *multiple* scripts instead of a single one (as shown in `\data\`), structure the code accordingly. The same applies to all other starter files—adapt or remove them as needed.  
->  
-> Feel free to delete this text.
 
-
-# Title of your Project
+# “How have trends in IMDb user engagement (ratings and number of votes) for different movie genres changed over time, and what factors might explain these shifts?”
 *Describe the purpose of this project* 
 
 ## Motivation
