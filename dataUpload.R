@@ -1,60 +1,69 @@
+# Install the dplyr package if not installed
 install.packages("dplyr")
 
-# Carica le librerie necessarie
-library(readr)
-library(R.utils)
-library(dplyr)
+# Load the necessary libraries
+library(readr)  # For reading .tsv files
+library(R.utils)  # For extracting .gz files
+library(dplyr)  # For data manipulation
 
-
-
-# URL di base per scaricare i dataset
+# Base URL for downloading the datasets
 base_url <- "https://datasets.imdbws.com/"
 
-# Nomi dei file da scaricare
+# List of dataset filenames to download
 files <- c("name.basics.tsv.gz", "title.akas.tsv.gz", "title.basics.tsv.gz", 
            "title.crew.tsv.gz", "title.episode.tsv.gz", "title.principals.tsv.gz", 
            "title.ratings.tsv.gz")
 
-# Directory temporanea per salvare i file
+# Temporary directory to store downloaded files
 download_dir <- tempdir()
 
-# Lista per salvare i dataset
+# List to store the loaded datasets
 datasets <- list()
 
-# Funzione per scaricare, decomprimere e caricare i dati
+# Loop to download, extract, and load each dataset
 for (file in files) {
-  file_url <- paste0(base_url, file)
-  file_path <- file.path(download_dir, file)
-  extracted_file <- sub(".gz$", "", file_path)
+  file_url <- paste0(base_url, file)  # Create the full URL
+  file_path <- file.path(download_dir, file)  # Define the local path for the file
+  extracted_file <- sub(".gz$", "", file_path)  # Define the extracted file name
   
-  # Scarica il file
+  # Download the compressed file
   download.file(file_url, file_path, mode = "wb")
   
-  # Decomprimi il file
+  # Extract the .gz file
   gunzip(file_path, destname = extracted_file, remove = FALSE)
   
-  # Carica il file in un data.frame
-  dataset_name <- sub(".tsv.gz$", "", file)  # Nome senza estensione
+  # Load the dataset into a data frame
+  dataset_name <- sub(".tsv.gz$", "", file)  # Extract dataset name without extensions
   datasets[[dataset_name]] <- read_tsv(extracted_file, col_types = cols(.default = "c"))
 }
 
-# Ora i dataset sono caricati in R e accessibili con datasets[["nome_del_dataset"]]
-# Esempio: datasets[["title.basics"]]
+# Now, datasets are loaded into R and can be accessed using datasets[["dataset_name"]]
+# Example: datasets[["title.basics"]]
 
+# List all extracted .tsv files in the temporary directory
 list.files(download_dir, pattern = "*.tsv")
+
+# Check the names of the loaded datasets
 names(datasets)
+
+# Show the full paths of all extracted .tsv files
 list.files(download_dir, pattern = "*.tsv", full.names = TRUE)
-str(datasets[["title.basics"]])  # Controlla la struttura del dataset
-head(datasets[["title.basics"]]) # Mostra le prime righe
 
+# Display the structure of the "title.basics" dataset
+str(datasets[["title.basics"]])
 
+# Show the first few rows of the "title.basics" dataset
+head(datasets[["title.basics"]])
+
+# Clean and transform specific columns in the "title.basics" dataset
 datasets[["title.basics"]] <- datasets[["title.basics"]] %>%
   mutate(
-    startYear = as.integer(ifelse(startYear == "\\N", NA, startYear)),
-    endYear = as.integer(ifelse(endYear == "\\N", NA, endYear)),
-    runtimeMinutes = as.integer(ifelse(runtimeMinutes == "\\N", NA, runtimeMinutes)),
-    isAdult = as.integer(isAdult) # isAdult è binario (0 o 1), quindi lo convertiamo in intero
+    startYear = as.integer(ifelse(startYear == "\\N", NA, startYear)),  # Convert startYear to integer, replacing "\N" with NA
+    endYear = as.integer(ifelse(endYear == "\\N", NA, endYear)),  # Convert endYear to integer, replacing "\N" with NA
+    runtimeMinutes = as.integer(ifelse(runtimeMinutes == "\\N", NA, runtimeMinutes)),  # Convert runtimeMinutes to integer, replacing "\N" with NA
+    isAdult = as.integer(isAdult)  # Convert isAdult to integer (0 or 1)
   )
 
+# Check the updated structure of the "title.basics" dataset after transformations
 str(datasets[["title.basics"]])
 
