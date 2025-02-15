@@ -1,6 +1,11 @@
+install.packages("dplyr")
+
 # Carica le librerie necessarie
 library(readr)
 library(R.utils)
+library(dplyr)
+
+
 
 # URL di base per scaricare i dataset
 base_url <- "https://datasets.imdbws.com/"
@@ -35,3 +40,21 @@ for (file in files) {
 
 # Ora i dataset sono caricati in R e accessibili con datasets[["nome_del_dataset"]]
 # Esempio: datasets[["title.basics"]]
+
+list.files(download_dir, pattern = "*.tsv")
+names(datasets)
+list.files(download_dir, pattern = "*.tsv", full.names = TRUE)
+str(datasets[["title.basics"]])  # Controlla la struttura del dataset
+head(datasets[["title.basics"]]) # Mostra le prime righe
+
+
+datasets[["title.basics"]] <- datasets[["title.basics"]] %>%
+  mutate(
+    startYear = as.integer(ifelse(startYear == "\\N", NA, startYear)),
+    endYear = as.integer(ifelse(endYear == "\\N", NA, endYear)),
+    runtimeMinutes = as.integer(ifelse(runtimeMinutes == "\\N", NA, runtimeMinutes)),
+    isAdult = as.integer(isAdult) # isAdult è binario (0 o 1), quindi lo convertiamo in intero
+  )
+
+str(datasets[["title.basics"]])
+
