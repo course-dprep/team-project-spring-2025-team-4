@@ -3,8 +3,7 @@
 *Describe the purpose of this project* 
 
 ## Motivation
-The purpose of the project is to analyze how independent music producers use **SoundCloud** to build their audience and gain popularity. The study focuses on **upload frequency**, artist strategies, and how these factors correlate with key metrics like **plays and followers**. Unlike other platforms such as Spotify, YouTube, and Bandcamp, SoundCloud allows **direct, frequent uploads and real-time audience engagement**, making it the most suitable for studying organic artist growth. By collecting and analyzing this data, the project aims to provide insights for **music industry researchers, independent artists, and data-driven platforms**.
-*Provide background/motivation for your project*
+
 
 **Mention your research question**
 
