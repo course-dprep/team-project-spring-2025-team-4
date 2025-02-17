@@ -54,7 +54,7 @@ datasets[["title.ratings"]] <- datasets[["title.ratings"]] %>%
 
 # Check the updated structure of the datasets after transformations
 str(datasets[["title.basics"]])
-str(datasets[["title.ratings"]])
+str(datasets[["title.ratings"]]) 
 
 # Show the first few rows of each dataset
 head(datasets[["title.basics"]])
