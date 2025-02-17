@@ -1,4 +1,11 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # The Nostalgia Effect: How Release Year and Genre Shape IMDb Movie Ratings Over Time
+
+https://github.com/course-dprep/team-project-spring-2025-team-4
 
 ## Introduction 
 This project aims to explore how nostalgia influences IMDb movie ratings by analyzing the relationship between a film’s release year and audience perception, with genre as a moderating factor. As nostalgia increasingly shapes consumer preferences, understanding its impact on movie reception can reveal biases in ratings and cultural memory effects. This study provides insights into how audiences evaluate films over time, helping industry professionals leverage nostalgia in content creation, marketing, and distribution strategies.
