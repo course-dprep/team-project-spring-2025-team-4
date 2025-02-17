@@ -7,25 +7,25 @@ In today’s entertainment industry, maximizing audience engagement and profitab
 From a managerial standpoint, this research has direct implications for film studios, streaming platforms, and marketers in shaping their content strategies. If older films receive higher ratings due to nostalgia rather than objective quality, this insight could influence decisions on which films to remake, re-release, or highlight in marketing campaigns. Streaming platforms can refine their recommendation algorithms by accounting for nostalgia-driven biases, improving user engagement and retention. Additionally, movie studios could leverage these findings to predict the potential success of sequels and franchise revivals, ensuring they appeal to audiences who value nostalgic elements. Understanding how genre moderates this effect also allows industry professionals to tailor their approach depending on whether certain film types (e.g., sci-fi, drama, or animation) are more influenced by nostalgia than others. Ultimately, this study provides a data-driven framework for maximizing audience appeal, optimizing content distribution, and making strategic investment decisions in the evolving film industry.
 
 ## Research Question
-To what extent is IMDb movie user rating influenced by the movie released year? And to what extent does movie genre influence this relationship? 
+To what extent is IMDb movie user rating influenced by the movie released year? And to what extent does movie genre influence this relationship?
 
 ## Data
 
-For this study, we used publicly available datasets from IMDb’s non-commercial dataset repository (IMDb Non-Commercial Datasets). 
-Link to the website: https://developer.imdb.com/non-commercial-datasets/
-Specifically, we utilized two key datasets:
+For this study, we used publicly available datasets from IMDb’s non-commercial dataset repository (IMDb Non-Commercial Datasets). \n
+Link to the website: https://developer.imdb.com/non-commercial-datasets/ \n
+Specifically, we utilized two key datasets: \n
 
-title.ratings.tsv.gz – Provides IMDb user ratings, including:
-Average Rating (DV) from the averageRating field.
-Number of Votes from the numVotes field.
+title.ratings.tsv.gz – Provides IMDb user ratings, including: \n
+Average Rating (DV) from the averageRating field. \n
+Number of Votes from the numVotes field. \n
 
-title.basics.tsv.gz – Contains movie metadata, including:
-Release Year (IV) from the startYear field.
-Genre (Moderator Variable) from the genres field.
-Country (Control Variable - U.S.), filtered to include only U.S. releases.
+title.basics.tsv.gz – Contains movie metadata, including: \n
+Release Year (IV) from the startYear field. \n
+Genre (Moderator Variable) from the genres field. \n
+Country (Control Variable - U.S.), filtered to include only U.S. releases. \n
 
-Why IMDb?
-IMDb provides a high-quality dataset for analyzing trends in movie ratings over time, the influence of genre, and country-specific variations. The structured dataset ensures a methodologically sound approach for studying how IMDb user ratings evolve with release year and genre differences.
+Why IMDb? \n
+IMDb provides a high-quality dataset for analyzing trends in movie ratings over time, the influence of genre, and country-specific variations. The structured dataset ensures a methodologically sound approach for studying how IMDb user ratings evolve with release year and genre differences. \n
 - How many observations are there in the final dataset? 
 - Include a table of variable description/operstionalisation. 
 
