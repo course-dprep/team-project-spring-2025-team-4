@@ -24,8 +24,8 @@ Release Year (IV) from the startYear field.
 Genre (Moderator Variable) from the genres field.   
 Country (Control Variable - U.S.), filtered to include only U.S. releases.   
 
-Why IMDb?
-IMDb provides a high-quality dataset for analyzing trends in movie ratings over time, the influence of genre, and country-specific variations. The structured dataset ensures a methodologically sound approach for studying how IMDb user ratings evolve with release year and genre differences. \n
+Why IMDb?  
+IMDb provides a high-quality dataset for analyzing trends in movie ratings over time, the influence of genre, and country-specific variations. The structured dataset ensures a methodologically sound approach for studying how IMDb user ratings evolve with release year and genre differences.
 - How many observations are there in the final dataset? 
 - Include a table of variable description/operstionalisation. 
 
