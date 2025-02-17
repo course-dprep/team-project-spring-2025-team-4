@@ -1,7 +1,12 @@
 ---
+title: "Markdown for Dprep"
+author: "Team 4"
+date: "`r Sys.Date()`"
 output:
-  pdf_document: default
-  html_document: default
+  pdf_document:
+    latex_engine: xelatex
+    toc: true
+    number_sections: true
 ---
 # The Nostalgia Effect: How Release Year and Genre Shape IMDb Movie Ratings Over Time
 
