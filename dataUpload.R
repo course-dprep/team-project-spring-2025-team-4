@@ -10,9 +10,8 @@ library(dplyr)  # For data manipulation
 base_url <- "https://datasets.imdbws.com/"
 
 # List of dataset filenames to download
-files <- c("name.basics.tsv.gz", "title.akas.tsv.gz", "title.basics.tsv.gz", 
-           "title.crew.tsv.gz", "title.episode.tsv.gz", "title.principals.tsv.gz", 
-           "title.ratings.tsv.gz")
+files <- c( "title.basics.tsv.gz", 
+            "title.ratings.tsv.gz")
 
 # Temporary directory to store downloaded files
 download_dir <- tempdir()
@@ -37,24 +36,6 @@ for (file in files) {
   datasets[[dataset_name]] <- read_tsv(extracted_file, col_types = cols(.default = "c"))
 }
 
-# Now, datasets are loaded into R and can be accessed using datasets[["dataset_name"]]
-# Example: datasets[["title.basics"]]
-
-# List all extracted .tsv files in the temporary directory
-list.files(download_dir, pattern = "*.tsv")
-
-# Check the names of the loaded datasets
-names(datasets)
-
-# Show the full paths of all extracted .tsv files
-list.files(download_dir, pattern = "*.tsv", full.names = TRUE)
-
-# Display the structure of the "title.basics" dataset
-str(datasets[["title.basics"]])
-
-# Show the first few rows of the "title.basics" dataset
-head(datasets[["title.basics"]])
-
 # Clean and transform specific columns in the "title.basics" dataset
 datasets[["title.basics"]] <- datasets[["title.basics"]] %>%
   mutate(
@@ -64,6 +45,17 @@ datasets[["title.basics"]] <- datasets[["title.basics"]] %>%
     isAdult = as.integer(isAdult)  # Convert isAdult to integer (0 or 1)
   )
 
-# Check the updated structure of the "title.basics" dataset after transformations
-str(datasets[["title.basics"]])
+# Clean and transform specific columns in the "title.ratings" dataset
+datasets[["title.ratings"]] <- datasets[["title.ratings"]] %>%
+  mutate(
+    averageRating = as.numeric(ifelse(averageRating == "\\N", NA, averageRating)),  # Convert averageRating to numeric, replacing "\N" with NA
+    numVotes = as.integer(ifelse(numVotes == "\\N", NA, numVotes))  # Convert numVotes to integer, replacing "\N" with NA
+  )
 
+# Check the updated structure of the datasets after transformations
+str(datasets[["title.basics"]])
+str(datasets[["title.ratings"]])
+
+# Show the first few rows of each dataset
+head(datasets[["title.basics"]])
+head(datasets[["title.ratings"]])
